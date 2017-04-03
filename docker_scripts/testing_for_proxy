@@ -1,0 +1,68 @@
+docker-machine create -d virtualbox manager1
+docker-machine create -d virtualbox worker3
+docker-machine create -d virtualbox worker4
+docker network create --driver overlay network1
+docker swarm init --advertise-addr 192.168.99.107
+
+eval $(docker-machine env worker3)
+docker swarm join \
+--token SWMTKN-1-6ct2okh3wfv1ztwmu48qz3nr52v8lwb701nc04qb8j9en0lgto-055bks6en6ejyy1din8wy3x76 \
+192.168.99.107:2377
+
+eval $(docker-machine env worker4)
+docker swarm join \
+--token SWMTKN-1-6ct2okh3wfv1ztwmu48qz3nr52v8lwb701nc04qb8j9en0lgto-055bks6en6ejyy1din8wy3x76 \
+192.168.99.107:2377
+
+docker service create --network network1 --replicas 3 --name my-busybox1 busybox   sleep 3000   
+docker service create --network network1 --replicas 3 --name util1 alpine sleep 1000000000
+
+ID=$(docker ps -q --filter label=com.docker.swarm.service.name=util1)
+docker exec -it $ID apk add --update drill
+docker exec -it $ID drill network1
+
+
+curl -i "localhost/"
+
+
+
+docker network create \
+  --driver overlay \
+  --subnet 10.0.9.0/24 \
+  --opt encrypted \
+  my-network5
+
+
+  docker service create \
+  --replicas 3 \
+  --name my-web5 \
+  --network my-network5 \
+  --publish 8082:80 \
+  nginx
+
+
+
+  docker service create \
+  --name my-busybox5 \
+  --network my-network5 \
+  busybox \
+  sleep 3000
+
+
+--- go demo blow
+
+docker service create \
+  --name my-busybox \
+  --network go-demo_default \
+  --network proxy \
+  busybox \
+  sleep 3000
+
+
+
+
+  docker service inspect \
+  --format='{{json .Endpoint.VirtualIPs}}' \
+  go-demo_default
+
+[{"NetworkID":"7m2rjx0a97n88wzr4nu8772r3" "Addr":"10.0.0.2/24"}]

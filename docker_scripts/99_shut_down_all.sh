@@ -1,0 +1,1 @@
+docker-machine rm -f swarm-1 swarm-2 swarm-3 swarm-test-1 swarm-test-2 swarm-test-3 
