@@ -33,10 +33,9 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
             * Add `swarm-1` to PROD_NAME
             * Add the output of `docker-machine ip swarm-test-1` to PROD_LIKE_IP
             * Add `swarm-test-1` to PROD_LIKE_NAME
-        * Place your credentials in the credentials store and get a credentialID
-        * `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/`
-        * Set the domain to `gitlab.ssc.etg.gc.ca`, and your username + password combo.
-        * Get your credential ID and place it inside the pull stage of the Fenkinsfile.
+        * Load up the jenkins credentials page and enter your github credentials there. `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/`
+            * Set the domain to `gitlab.ssc.etg.gc.ca`, and your username + password combo.
+            * Copy and paste your credential ID into the pull stage of the /jenkins/jenkinsfile.groovy.
 
 # Developing
 Enter information here on how to develop inside this type of setup. 
