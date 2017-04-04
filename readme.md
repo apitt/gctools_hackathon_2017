@@ -58,3 +58,5 @@ In a CI/CD when you change code inside the code repository it triggers a full ra
 # How do I shutdown the system?
 
 # How do I back up the system?
+
+# How do I run this code inside a SSC Data Center?
