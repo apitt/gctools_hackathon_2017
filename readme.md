@@ -1,5 +1,5 @@
 HEY ALEXANDRA
-* This code is a bit of a disaster. But it does kind of work and it does set up a continuous integration and continuous deployment workflow. 
+* This code is a bit of a disaster. But it does kind of work and it does set up a continuous integration and continuous deployment workflow on your laptop in under 8 gigs of RAM. 
 * The proxy does work now too. So when we spin up more services the proxy will detect them and know to send requests to them. This helps us scale.
 * I have spent a good amount of time making my computer just work with docker and the proxy. I had problems again today communicating with my swarm. It just failed and failed until it worked. 
 * Tomorrow I will work to improve this and hopefully we can begin integrating our work. 
