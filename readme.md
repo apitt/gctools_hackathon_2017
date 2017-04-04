@@ -1,18 +1,19 @@
 HEY ALEXANDRA
-* This code is a bit of a disaster. But it does kind of work and it does set up a continuous integration and continuous deployment workflow. 
+* This code is a bit of a disaster. But it does kind of work and it does set up a continuous integration and continuous deployment workflow on your laptop in under 8 gigs of RAM. 
 * The proxy does work now too. So when we spin up more services the proxy will detect them and know to send requests to them. This helps us scale.
-* I have spent a good amount of time making my computer just work with docker and the proxy. I had problems again today communicating with my swarm. It just failed and failed until it worked. 
+* I have spent a good amount of time making my computer just work with docker and the proxy. I had problems again today communicating with my swarm. It just failed and failed until it worked. So many wasted hours!
 * Tomorrow I will work to improve this and hopefully we can begin integrating our work. 
+* I did some brain storming and added some things todo next as Issues. Please feel free to add items, vote things up, vote things down and whatever you feel is appropirate. 
 * See you tmrw.
 
 # Base Install
 These instructions set up a dockerized develpment, staging, pre-prod and prod enviroments. This code sets up the CI/CD workflow.
 
 * If you want a clean install to start again:
-    * removed the ./docker folder, 
+    * removed the ./docker folder in the gcpedia folder, or 
     * run the `99_shut_down_all.sh` script 
     * reboot your computer
-    * delete the .ssh, .docker, .VirtualBox folders. 
+    * delete the .ssh, .docker, .docker\machine\machines, .VirtualBox folders inside the Users folder. 
     * other
 * Run `bash docker_scripts/1_create_prod_swarm.sh` 
 * Run `bash docker_scripts/2_create_jenkins.sh` 
@@ -35,7 +36,12 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
             * Add `swarm-test-1` to PROD_LIKE_NAME
         * Load up the jenkins credentials page and enter your github credentials there. `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/`
             * Set the domain to `gitlab.ssc.etg.gc.ca`, and your username + password combo.
-            * Copy and paste your credential ID into the pull stage of the /jenkins/jenkinsfile.groovy.
+        * Create a new jenkins job
+            * Select 'create a new job' at `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/newJob`
+            * Enter item name as "gcpedia-demo", select Pipeline and then OK.
+            * Paste the content of the /jenkins/jenkinsfile.groovy file into the Pipeline script textarea. 
+            * Paste your credential ID from your github credentials into the pull stage of the Pipeline script and press Save.
+            * Select `Build Now`            
 
 # Developing
 Enter information here on how to develop inside this type of setup. 
@@ -52,3 +58,5 @@ In a CI/CD when you change code inside the code repository it triggers a full ra
 # How do I shutdown the system?
 
 # How do I back up the system?
+
+# How do I run this code inside a SSC Data Center?
