@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  mysql:
+    environment:
+      - MYSQL_DATABASE=localdb
+      - MYSQL_ROOT_PASSWORD=pass
+    image: 'mariadb:latest'
+    ports:
+      - '3306:3306'
+    volumes:
+      - "${PWD}/data:/var/lib/mysql"
+    networks:
+        - code-network
+
+  php:
+    image: 'php:fpm'
+    volumes:
+      - "${PWD}/gcpedia:/code"
+    networks:
+        - code-network
+  web:
+    image: 'nginx:latest'
+    ports:
+      - '8080:80'
+    volumes:
+      - "${PWD}/gcpedia:/code"
+      - "${PWD}/site.conf:/etc/nginx/conf.d/default.conf"
+    networks:
+        - code-network
+
+networks:  
+  code-network:
+    external: true
+        
