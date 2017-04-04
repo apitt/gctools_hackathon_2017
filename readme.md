@@ -6,6 +6,9 @@ HEY ALEXANDRA
 * I did some brain storming and added some things todo next as Issues. Please feel free to add items, vote things up, vote things down and whatever you feel is appropirate. 
 * See you tmrw.
 
+# Team Communications
+* Please sign up for slack and join our channel - https://gctoolsteampipeline.slack.com
+
 # Base Install
 These instructions set up a dockerized develpment, staging, pre-prod and prod enviroments. This code sets up the CI/CD workflow.
 
