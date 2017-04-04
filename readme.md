@@ -35,7 +35,12 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
             * Add `swarm-test-1` to PROD_LIKE_NAME
         * Load up the jenkins credentials page and enter your github credentials there. `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/`
             * Set the domain to `gitlab.ssc.etg.gc.ca`, and your username + password combo.
-            * Copy and paste your credential ID into the pull stage of the /jenkins/jenkinsfile.groovy.
+        * Create a new jenkins job
+            * Select 'create a new job' at `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/newJob`
+            * Enter item name as "gcpedia-demo", select Pipeline and then OK.
+            * Paste the content of the /jenkins/jenkinsfile.groovy file into the Pipeline script textarea. 
+            * Paste your credential ID from your github credentials into the pull stage of the Pipeline script and press Save.
+            * Select `Build Now`            
 
 # Developing
 Enter information here on how to develop inside this type of setup. 
