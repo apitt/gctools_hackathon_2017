@@ -3,6 +3,7 @@ HEY ALEXANDRA
 * The proxy does work now too. So when we spin up more services the proxy will detect them and know to send requests to them. This helps us scale.
 * I have spent a good amount of time making my computer just work with docker and the proxy. I had problems again today communicating with my swarm. It just failed and failed until it worked. 
 * Tomorrow I will work to improve this and hopefully we can begin integrating our work. 
+* I did some brain storming and added some things todo next as Issues. Please feel free to add items, vote things up, vote things down and whatever you feel is appropirate. 
 * See you tmrw.
 
 # Base Install
