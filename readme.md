@@ -9,10 +9,10 @@ HEY ALEXANDRA
 These instructions set up a dockerized develpment, staging, pre-prod and prod enviroments. This code sets up the CI/CD workflow.
 
 * If you want a clean install to start again:
-    * removed the ./docker folder, 
+    * removed the ./docker folder in the gcpedia folder, or 
     * run the `99_shut_down_all.sh` script 
     * reboot your computer
-    * delete the .ssh, .docker, .VirtualBox folders. 
+    * delete the .ssh, .docker, .docker\machine\machines, .VirtualBox folders inside the Users folder. 
     * other
 * Run `bash docker_scripts/1_create_prod_swarm.sh` 
 * Run `bash docker_scripts/2_create_jenkins.sh` 
