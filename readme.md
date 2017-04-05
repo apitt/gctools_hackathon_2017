@@ -12,12 +12,16 @@ HEY ALEXANDRA
 # Base Install
 These instructions set up a dockerized develpment, staging, pre-prod and prod enviroments. This code sets up the CI/CD workflow.
 
-* If you want a clean install to start again:
+* Install (Docker)(https://www.docker.com/get-docker). If Windows install the (Docker Toolbox](https://www.docker.com/products/docker-toolbox). 
+* Install [git](https://git-scm.com/downloads).
+* Create a folder under your c:/Users/ and clone the repo - `git clone https://github.com/demiantradel/gctools_hackathon_2017.git` .
+* (optional) If you want a clean install to start again:
     * removed the ./docker folder in the gcpedia folder, or 
     * run the `99_shut_down_all.sh` script 
     * reboot your computer
     * delete the .ssh, .docker, .docker\machine\machines, .VirtualBox folders inside the Users folder. 
     * other
+* Run `bash docker_scripts/0_install_gcpedia.sh`
 * Run `bash docker_scripts/1_create_prod_swarm.sh` 
 * Run `bash docker_scripts/2_create_jenkins.sh` 
 * Run `bash docker_scripts/3_make_proxy_and_networks.sh`
