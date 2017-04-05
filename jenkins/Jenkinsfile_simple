@@ -1,0 +1,37 @@
+# A very simple workflow
+node("docker") {
+
+  stage("Pull") {
+    git "https://github.com/demiantradel/gctools_hackathon_2017.git"
+  }
+
+  stage("Unit") {
+  }
+
+    stage("Staging") {
+      try {
+        sh "docker stack deploy -c docker-cloud.yml gcpedia"
+        
+      } catch(e) {
+        error "Staging failed"
+      } finally {
+        sh "docker stack rm gcpedia"
+      }
+    }
+
+  stage("BaselineSecurityCheck1") {
+  }
+
+  stage("Publish") {
+  }
+
+  stage("Prod-like") {
+  }
+
+  stage("NotifyOtherParties") {
+  }
+
+  stage("Production") {
+  }
+
+}
