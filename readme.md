@@ -1,18 +1,10 @@
-HEY ALEXANDRA
-* This code is a bit of a disaster. But it does kind of work and it does set up a continuous integration and continuous deployment workflow on your laptop in under 8 gigs of RAM. 
-* The proxy does work now too. So when we spin up more services the proxy will detect them and know to send requests to them. This helps us scale.
-* I have spent a good amount of time making my computer just work with docker and the proxy. I had problems again today communicating with my swarm. It just failed and failed until it worked. So many wasted hours!
-* Tomorrow I will work to improve this and hopefully we can begin integrating our work. 
-* I did some brain storming and added some things todo next as Issues. Please feel free to add items, vote things up, vote things down and whatever you feel is appropirate. 
-* See you tmrw.
-
 # Team Communications
 * Please sign up for slack and join our channel - https://gctoolsteampipeline.slack.com
 
 # Base Install
 These instructions set up a dockerized develpment, staging, pre-prod and prod enviroments. This code sets up the CI/CD workflow.
 
-* Install (Docker)(https://www.docker.com/get-docker). If Windows install the (Docker Toolbox](https://www.docker.com/products/docker-toolbox). 
+* If required: Install [Docker](https://www.docker.com/get-docker). If using any version Windows please install the [Docker Toolbox](https://www.docker.com/products/docker-toolbox). 
 * Install [git](https://git-scm.com/downloads).
 * Create a folder under your c:/Users/ and clone the repo - `git clone https://github.com/demiantradel/gctools_hackathon_2017.git` .
 * (optional) If you want a clean install to start again:
@@ -47,7 +39,7 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
             * Select 'create a new job' at `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/newJob`
             * Enter item name as "gcpedia-demo", select Pipeline and then OK.
             * Paste the content of the /jenkins/jenkinsfile.groovy file into the Pipeline script textarea. 
-            * Paste your credential ID from your github credentials into the pull stage of the Pipeline script and press Save.
+            * (removed step while a public repo)Paste your credential ID from your github credentials into the pull stage of the Pipeline script and press Save.
             * Select `Build Now`            
 
 # Developing
