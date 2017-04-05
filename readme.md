@@ -23,7 +23,7 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
     * other
 * Run `bash docker_scripts/0_install_gcpedia.sh`
 * Run `bash docker_scripts/1_create_prod_swarm.sh` 
-* Run `bash docker_scripts/2_create_jenkins.sh` 
+* Run `bash docker_scripts/2_create_test_swarm.sh` 
 * Run `bash docker_scripts/3_make_proxy_and_networks.sh`
 * Run `bash docker_scripts/4_create_jenkins.sh`
     * Copy down the temporary jenkins administrative password `cat docker/jenkins/secrets/initialAdminPassword` 
