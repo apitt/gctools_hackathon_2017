@@ -1,7 +1,3 @@
-#Create a directory for Mariadb service
-if [ ! -d "data" ]; then    
-    mkdir data
-fi
 
 #clone GCPedia code if not already done:
 if [ ! -d "gcpedia" ]; then
