@@ -41,8 +41,8 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
             * Add `swarm-1` to PROD_NAME
             * Add the output of `docker-machine ip swarm-test-1` to PROD_LIKE_IP
             * Add `swarm-test-1` to PROD_LIKE_NAME
-        * Load up the jenkins credentials page and enter your github credentials there. `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/`
-            * Set the domain to `gitlab.ssc.etg.gc.ca`, and your username + password combo.
+        * Load up the jenkins credentials page and enter your github credentials there. `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/credentials/store/system/newDomain`
+            * Set the domain to `github.com` and press ok. Then find the `adding some credentials` link and add your username + password combo.
         * Create a new jenkins job
             * Select 'create a new job' at `start chrome.exe $(docker-machine ip swarm-1):8082/jenkins/newJob`
             * Enter item name as "gcpedia-demo", select Pipeline and then OK.
