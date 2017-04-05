@@ -1,4 +1,3 @@
-# A very simple workflow
 node("docker") {
 
   stage("Pull") {
