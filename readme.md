@@ -44,23 +44,14 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
 
 # TL-DR - Just Deploy my Stacks
 If you are here we assume you have all the code, etc.
+* Run `bash docker_scripts/2_create_prod_swarm.sh` 
 * Run `bash docker_scripts/2_create_test_swarm.sh` 
 * eval $(docker-machine env swarm-test-1)
-* docker network create --driver overlay proxy
-* docker-machine scp ./docker-compose-stack-proxy.yml swarm-test-1:~/
-* docker-machine ssh swarm-test-1
-* docker stack deploy -c docker-compose-stack-proxy.yml proxy
-* docker stack ps proxy
-
-* exit
-
-* #docker-machine ssh swarm-test-1
-* #docker-machine scp ./docker-compose-stack-gcpedia.yml swarm-test-1:~/
+* docker network create --driver overlay code-network
 * docker stack deploy -c docker-compose-stack-gcpedia.yml gcpedia
 * docker stack ps gcpedia
-
+* `start chrome.exe $(docker-machine ip swarm-test-1):8080`
 * #docker stack down gcpedia
-* #docker stack down proxy
 
 
 # Developing
