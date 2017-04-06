@@ -44,7 +44,7 @@ These instructions set up a dockerized develpment, staging, pre-prod and prod en
 
 # TL-DR - Just Deploy my Stacks
 If you are here we assume you have all the code, etc.
-* Run `bash docker_scripts/2_create_prod_swarm.sh` 
+* Run `bash docker_scripts/1_create_prod_swarm.sh` 
 * Run `bash docker_scripts/2_create_test_swarm.sh` 
 * eval $(docker-machine env swarm-test-1)
 * docker network create --driver overlay code-network
