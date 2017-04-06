@@ -1,5 +1,5 @@
-if [ ! -d "data" ]; then    
-    mkdir data
+if [ ! -d "data" ]; then
+	mkdir data
 fi
 
 #clone GCPedia code if not already done:
@@ -20,7 +20,4 @@ fi
 #But, for now, we will just delete its content.
 cd vendor/wikimedia/timestamp/src
 echo '<?php' > defines.php
-
-
-
 
