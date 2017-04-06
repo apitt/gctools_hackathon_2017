@@ -8,7 +8,7 @@ if [ ! -d "gcpedia" ]; then
     git clone https://github.com/gctools-outilsgc/gcpedia.git
 
     #copy the default LocalSetting.php file
-    cp -R ./LocalSettings.php ./gcpedia/
+    #cp -R ./LocalSettings.php ./gcpedia/
 fi
 
 cd gcpedia
