@@ -54,8 +54,8 @@ List here continuous improvement/monitoring security health checks procedures.
 ## How do I release code into production?
 In a CI/CD when you change code inside the code repository it triggers a full range of automated tasks. If all those tasks pass then the code is released into production.
 
-# How do I shutdown the system?
+## How do I shutdown the system?
 
-# How do I back up the system?
+## How do I back up the system?
 
-# How do I run this code inside a SSC Data Center?
+## How do I run this code inside a SSC Data Center?
