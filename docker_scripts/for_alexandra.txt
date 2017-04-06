@@ -1,0 +1,93 @@
+
+
+ssh tbshseb2@gctoolshack.canadaeast.cloudapp.azure.com
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install git
+
+sudo apt-get apache2 mysql-server php5 php5-mysql libapache2-mod-php5
+
+
+
+
+
+## GCpedia
+
+
+mysql -u root -p
+
+CREATE DATABASE gcpediadb;
+GRANT ALL ON gcpediadb.* TO gcpedia@localhost IDENTIFIED BY 'password';
+QUIT;
+
+git clone -b gcpedia --depth=1 https://github.com/smellems/gcpedia
+
+cd gcpedia
+
+git remote add upstream https://github.com/gctools-outilsgc/gcpedia
+git fetch upstream
+git reset --hard upstream/gcpedia
+git checkout -b my_new_feature
+
+wget https://getcomposer.org/composer.phar
+
+php composer.phar install
+
+cd /var/www/html/
+sudo ln -s /home/tbshseb2/gcpedia gcpedia
+
+# Install - http://gctoolshack.canadaeast.cloudapp.azure.com/gcpedia
+
+sudo apt-get install php5-gd php5-intl
+
+sudo service apache2 restart
+
+
+
+
+
+
+
+
+
+
+
+## GCconnex
+
+
+mysql -u root -p
+
+CREATE DATABASE gcconnexdb;
+GRANT ALL ON gcconnexdb.* TO gcpedia@localhost IDENTIFIED BY 'password';
+QUIT;
+
+git clone -b gcconnex --depth=1 https://github.com/gctools-outilsgc/gcconnex
+
+mkdir gcconnex_data
+
+chmod 777 gcconnex
+chmod 777 gcconnex/engine
+chmod 700 gcconnex_data
+sudo chown www-data:www-data gcconnex_data
+
+sudo a2enmod rewrite
+sudo nano /etc/apache2/sites-available/000-default.conf
+
+<Directory /var/www/html/gcconnex>
+  Options Indexes FollowSymLinks MultiViews
+  AllowOverride All
+  Order allow,deny
+  allow from all
+</Directory>
+
+sudo service apache2 restart
+
+cd /var/www/html/
+sudo ln -s /home/tbshseb2/gcconnex gcconnex
+
+# Install - http://gctoolshack.canadaeast.cloudapp.azure.com/gcconnex
+
+chmod 775 gcconnex
+chmod 775 gcconnex/engine
