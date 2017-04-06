@@ -2,6 +2,16 @@ node("docker") {
 
   stage("Pull") {
     git "https://github.com/demiantradel/gctools_hackathon_2017.git"
+    //git --depth=1 "https://github.com/demiantradel/gctools_hackathon_2017.git"
+    //sh "git clone --depth=1 https://github.com/demiantradel/gctools_hackathon_2017.git"
+    //sh "cd gctools_hackathon_2017"
+    //sh "git clone --depth=1 https://github.com/gctools-outilsgc/gcpedia.git"
+    //sh "cd gcpedia"
+    //sh "git clone --depth=1 git clone https://gerrit.wikimedia.org/r/p/mediawiki/vendor.git"
+    
+    //git "https://github.com/gctools-outilsgc/gcpedia.git"
+    //sh "cd gcpedia"
+    //git "git clone https://gerrit.wikimedia.org/r/p/mediawiki/vendor.git "
     // git branch: 'master', credentialsId: '73b6a5f2-f9be-41cd-a3ed-7d3f54627384', url: 'https://github.com/demiantradel/gctools_hackathon_2017.git'
   }
 
