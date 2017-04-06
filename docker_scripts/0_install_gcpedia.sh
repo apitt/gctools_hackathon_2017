@@ -6,6 +6,9 @@ fi
 if [ ! -d "gcpedia" ]; then
     echo '*** Getting GcPedia code ***'
     git clone https://github.com/gctools-outilsgc/gcpedia.git
+
+    #copy the default LocalSetting.php file
+    cp -R ./LocalSettings.php ./gcpedia/
 fi
 
 cd gcpedia
