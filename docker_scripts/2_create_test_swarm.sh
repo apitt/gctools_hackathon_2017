@@ -8,6 +8,7 @@ for i in 1 2 3; do
     docker-machine create \
         -d virtualbox \
         --virtualbox-memory 512 \
+        --engine-opt experimental=true \
         swarm-test-$i
 done
 
@@ -15,6 +16,7 @@ eval $(docker-machine env swarm-test-1)
 
 docker swarm init \
     --advertise-addr $(docker-machine ip swarm-test-1)
+    --listen-addr $(docker-machine ip swarm-test-1):2377
 
 echo ">> Labeling swarm-test-1 as a jenkins-agent"
 docker node update \

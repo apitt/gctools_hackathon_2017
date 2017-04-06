@@ -1,8 +1,7 @@
 node("docker") {
 
   stage("Pull") {
-    git "https://github.com/docker/dockercloud-hello-world.git"
-    //git "https://github.com/demiantradel/gctools_hackathon_2017.git"
+    git "https://github.com/demiantradel/gctools_hackathon_2017.git"
     // git branch: 'master', credentialsId: '73b6a5f2-f9be-41cd-a3ed-7d3f54627384', url: 'https://github.com/demiantradel/gctools_hackathon_2017.git'
   }
 
@@ -23,9 +22,7 @@ node("docker") {
 
     stage("Staging") {
       try {
-        sh "docker-compose up"
-        //sh "docker-compose up -d staging-dep"
-        //sh "docker-compose run --rm staging"
+        //sh "docker-compose up"
       } catch(e) {
         error "Staging failed"
       } finally {
@@ -35,9 +32,9 @@ node("docker") {
 
     stage("Publish") {
       sh "docker tag go-demo \
-        localhost:5000/hello-world:2.${env.BUILD_NUMBER}"
+        localhost:5000/gcpedia:2.${env.BUILD_NUMBER}"
       sh "docker push \
-        localhost:5000/hello-world:2.${env.BUILD_NUMBER}"
+        localhost:5000/gcpedia:2.${env.BUILD_NUMBER}"
     }
 
     stage("Prod-like") {
@@ -47,8 +44,8 @@ node("docker") {
         "DOCKER_CERT_PATH=/machines/${env.PROD_LIKE_NAME}"
       ]) {
         sh "docker service update \
-          --image localhost:5000/hello-world:2.${env.BUILD_NUMBER} \
-          hello-world"
+          --image localhost:5000/gcpedia:2.${env.BUILD_NUMBER} \
+          gcpedia"
       }
       withEnv(["HOST_IP=localhost"]) {
         for (i = 0; i <10; i++) {
@@ -68,8 +65,8 @@ node("docker") {
         "DOCKER_CERT_PATH=/machines/${env.PROD_NAME}"
       ]) {
         sh "docker service update \
-          --image localhost:5000/hello-world:2.${env.BUILD_NUMBER} \
-          hello-world"
+          --image localhost:5000/gcpedia:2.${env.BUILD_NUMBER} \
+          gcpedia"
       }
       withEnv(["HOST_IP=${env.PROD_IP}"]) {
         for (i = 0; i <10; i++) {
