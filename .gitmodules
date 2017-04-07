@@ -1,0 +1,6 @@
+[submodule "gcpedia"]
+	path = gcpedia
+	url = https://github.com/gctools-outilsgc/gcpedia.git
+[submodule "vendor"]
+	path = vendor
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/vendor.git
