@@ -1,0 +1,42 @@
+node("docker") {
+
+    stage("Pull") {
+      git url: "https://github.com/demiantradel/gctools_hackathon_2017.git", branch: "master", depth: 1
+      sh "git submodule add --depth=1 https://github.com/gctools-outilsgc/gcpedia.git gcpedia"
+      sh "git submodule add --depth=1 https://gerrit.wikimedia.org/r/p/mediawiki/vendor.git vendor"
+  }
+
+  stage("Unit") {
+  }
+
+  stage("Staging") {
+    try {
+      sh "docker network create --driver overlay code-network"
+      sh "docker stack deploy -c docker-compose-stack-gcpedia.yml gcpedia" 
+    } catch(e) {
+      error "Staging failed"
+    } finally {
+      sh "docker stack rm gcpedia"
+    }
+  }
+
+  stage("BaselineSecurityCheck1") {
+  }
+
+  stage("Publish") {
+  }
+
+  stage("Prod-like-Testing") {
+  }
+
+  stage("NotifyOtherParties") {
+  }
+
+  stage('Sanity check') {
+    input "Does the staging environment look ok?"
+  }
+
+  stage("Production") {
+  }
+
+}
