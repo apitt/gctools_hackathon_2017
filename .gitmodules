@@ -2,5 +2,5 @@
 	path = gcpedia
 	url = https://github.com/gctools-outilsgc/gcpedia.git
 [submodule "vendor"]
-	path = vendor
+	path = gcpedia/vendor
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/vendor.git
