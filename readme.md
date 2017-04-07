@@ -66,6 +66,26 @@ List here continuous improvement/monitoring security health checks procedures.
 ## How do I release code into production?
 In a CI/CD when you change code inside the code repository it triggers a full range of automated tasks. If all those tasks pass then the code is released into production.
 
+## Testing
+
+First attempt at testing resides in the files:
+* Dockerfile.test
+* docker-compose-stack-gcpedia.test.yml
+* test.sh
+
+This is currently using "v2" syntax, as that's all that Andrew had on his computer.
+
+To attempt to run:
+    docker-compose -f docker-compose-stack-gcpedia.test.yml -p ci build
+    docker-compose -f docker-compose-stack-gcpedia.test.yml -p ci up -d
+
+To check if the tests passed or failed:
+    docker logs -f ci_sut_1
+    
+To tear it down afterwards:
+    docker-compose -f docker-compose-stack-gcpedia.test.yml -p ci down
+
+
 ## How do I shutdown the system?
 
 ## How do I back up the system?
