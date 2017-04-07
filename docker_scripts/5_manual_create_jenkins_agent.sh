@@ -4,6 +4,7 @@ eval $(docker-machine env swarm-test-1)
 
 docker-machine ssh swarm-test-1
 
+sudo mount -t / / -o remount,size=1250M  
 sudo mkdir /workspace && sudo chmod 777 /workspace && exit
 
 export USER=admin
